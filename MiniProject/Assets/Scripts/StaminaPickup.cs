@@ -23,8 +23,9 @@ public class StaminaPickup : MonoBehaviour
         {
             watchAudioSource.Play();
             Timer.timePickups += 5;
+            other.gameObject.SetActive(false);
 
-            StartCoroutine(RespawnTime());
+
         }
 
         IEnumerator RespawnTime()

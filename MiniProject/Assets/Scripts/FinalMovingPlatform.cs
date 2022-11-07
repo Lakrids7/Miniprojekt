@@ -29,23 +29,14 @@ public class FinalMovingPlatform : MonoBehaviour
                 playerHasTouched = false;
                 StartCoroutine(platformResetTimer());
             }
-
-            IEnumerator platformResetTimer()
-            {
-                this.transform.DetachChildren();
-                yield return new WaitForSeconds(2f);
-                movingPlatform.gameObject.transform.position = new Vector3(999f, 999f, 999f);
-                yield return new WaitForSeconds(2f);
-                movingPlatform.gameObject.transform.position = originalPosition;
-                playerDied = false;
-            }
-            if (playerDied == true)
-            {
-                playerHasTouched = false;
-                StartCoroutine(platformResetTimer());
-            }
         }
         else movementTime = Time.unscaledTime;
+
+        if (playerDied == true)
+        {
+            playerHasTouched = false;
+            StartCoroutine(playerDiedReset());
+        }
 
     }
 
@@ -60,6 +51,22 @@ public class FinalMovingPlatform : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         other.transform.SetParent(null);
+    }
+    IEnumerator platformResetTimer()
+    {
+        this.transform.DetachChildren();
+        yield return new WaitForSeconds(2f);
+        movingPlatform.gameObject.transform.position = new Vector3(999f, 999f, 999f);
+        yield return new WaitForSeconds(2f);
+        movingPlatform.gameObject.transform.position = originalPosition;
+    }
+
+    IEnumerator playerDiedReset()
+    {
+        this.transform.DetachChildren();
+        yield return new WaitForSeconds(1f);
+        movingPlatform.gameObject.transform.position = originalPosition;
+        playerDied = false;
     }
 
 

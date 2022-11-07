@@ -11,6 +11,7 @@ public class ResetLocation : MonoBehaviour
     private Vector3 checkpointPosition;
     public Image staminaImage;
 
+
     private void Start()
     {
         checkpointPosition = startPoint.transform.position;
@@ -29,5 +30,11 @@ public class ResetLocation : MonoBehaviour
             if (other.gameObject.CompareTag("Water")) waterSplash.Play();
             FinalMovingPlatform.playerDied = true;
         }
+        if (other.gameObject.CompareTag("WinTrigger"))
+        {
+            player.GetComponent<PlayerController>().enabled = false;
+            Win.playerHasWon = true;
+        }
+
     }
 }

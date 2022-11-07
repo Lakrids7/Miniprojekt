@@ -7,8 +7,7 @@ public class Timer : MonoBehaviour
 {
     
     public TextMeshProUGUI timer;
-    int seconds;
-    int minutes;
+    public static int time;
     int minutesPassedinSeconds;
     public static int timePickups;
 
@@ -16,16 +15,21 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        int time = (int)Time.time - minutesPassedinSeconds - timePickups;
-        /*if (seconds == 60)
+        if(Win.playerHasWon == false)
         {
-            minutes++;
-            minutesPassedinSeconds += 60;
-        }
-        */
+            time = (int)Time.time - minutesPassedinSeconds - timePickups;
 
-        timer.text = "Time:" + time;
+            timer.text = "Time:" + time;
+        }
+
+
 
 
     }
+
+    public int getTime()
+    {
+        return time;
+    }
+
 }
