@@ -8,6 +8,7 @@ TagManager:
   - StaminaPickup
   - Obstacle
   - Checkpoint
+  - Watch
   layers:
   - Default
   - TransparentFX

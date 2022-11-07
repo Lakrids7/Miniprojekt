@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
+
     public GameObject movingPlatform;
     private Vector3 originalPosition;
     public int x, y, z;
@@ -17,6 +18,7 @@ public class MovingPlatform : MonoBehaviour
     }
     void Update()
     {
+
         if (playerHasTouched == true)
         {
             movingPlatform.gameObject.transform.Translate(x*Time.deltaTime, y*Time.deltaTime, z* Time.deltaTime);

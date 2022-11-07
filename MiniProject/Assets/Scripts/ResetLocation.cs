@@ -10,6 +10,7 @@ public class ResetLocation : MonoBehaviour
     public GameObject startPoint;
     private Vector3 checkpointPosition;
     public Image staminaImage;
+
     private void Start()
     {
         checkpointPosition = startPoint.transform.position;
@@ -26,6 +27,7 @@ public class ResetLocation : MonoBehaviour
             PlayerController.stamina = PlayerController.maxStamina;
             staminaImage.fillAmount = 1;
             if (other.gameObject.CompareTag("Water")) waterSplash.Play();
+            FinalMovingPlatform.playerDied = true;
         }
     }
 }

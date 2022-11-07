@@ -7,15 +7,23 @@ public class StaminaPickup : MonoBehaviour
 {
     public GameObject player;
     public Image staminaImage;
-    public AudioSource audioSource;
+    public AudioSource staminaAudioSource;
+    public AudioSource watchAudioSource;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("StaminaPickup"))
         {
-            audioSource.Play();
+            staminaAudioSource.Play();
             //Destroy(other.gameObject);
             PlayerController.stamina = PlayerController.maxStamina;
             staminaImage.fillAmount = 1;
+            StartCoroutine(RespawnTime());
+        }
+        if (other.gameObject.CompareTag("Watch"))
+        {
+            watchAudioSource.Play();
+            Timer.timePickups += 5;
+
             StartCoroutine(RespawnTime());
         }
 
@@ -25,5 +33,9 @@ public class StaminaPickup : MonoBehaviour
             yield return new WaitForSeconds(5);
             other.gameObject.SetActive(true);
         }
+
+
+
+
     }
 }

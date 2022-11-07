@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     //Gravity
     float gravity = 16;
-    float verticalSpeed = 0;
+    public static float verticalSpeed = 0;
 
     //Rotate with mouse
     public Transform CameraHolder;
@@ -27,11 +27,16 @@ public class PlayerController : MonoBehaviour
     float staminaRecoveryDelay;
     bool isSprinting = false;
 
+    private void Start()
+    {
+        stamina = 0f;
+    }
     private void Update()
     {
         Move();
         Rotate();
         Sprint();
+        //Debug.Log("Vertical speed:" + verticalSpeed);
     }
     private void Move()
     {
