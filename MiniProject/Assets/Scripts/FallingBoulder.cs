@@ -9,6 +9,7 @@ public class FallingBoulder : MonoBehaviour
     public float waitTime;
     void Start()
     {
+        //Stores the starting position of the boulder and starts a courotine
         startPosition = this.gameObject.transform.position;
         StartCoroutine(platformResetTimer());
         rigidbody = this.gameObject.GetComponent<Rigidbody>();
@@ -16,10 +17,11 @@ public class FallingBoulder : MonoBehaviour
 
     IEnumerator platformResetTimer()
     {
+        //Waits for a certain amount of time (is set in the unity interface), and after the time has passed, the boulder is reset to its original position along with its velocity being reset
         yield return new WaitForSeconds(waitTime);
         this.gameObject.transform.position = startPosition;
         rigidbody.velocity = new Vector3(0, 0, 0);
-
+        //The courotine resets itself in order to have the boulder keep falling and respawning
         StartCoroutine(platformResetTimer());
     }
 }

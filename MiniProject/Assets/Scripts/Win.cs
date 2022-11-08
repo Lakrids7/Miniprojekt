@@ -13,11 +13,11 @@ public class Win : MonoBehaviour
     void Start()
     {
         playerHasWon = false;
-
     }
 
     void Update()
     {
+        //If player has won is true displays winscene and displays the time
         if(playerHasWon == true)
         {
             winScreen.gameObject.SetActive(true);

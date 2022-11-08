@@ -10,8 +10,7 @@ public class BouncingPlatform : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //characterController.Move(10 * Time.deltaTime * new Vector3(0, 10, 0));
-            //Debug.Log("Virker det??" + Time.time);
+            //Increases the players vertical speed by 15 if they collide with the bouncing platform, and plays a sound
             PlayerController.verticalSpeed = 15f;
             boingAudioSource.Play();
         }

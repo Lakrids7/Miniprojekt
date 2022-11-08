@@ -39,30 +39,31 @@ public class PlayerController : MonoBehaviour
         Move();
         Rotate();
         Sprint();
-        //Debug.Log("Vertical speed:" + verticalSpeed);
     }
     private void Move()
     {
         float horizontalMove = Input.GetAxis("Horizontal");
         float verticalMove = Input.GetAxis("Vertical");
 
+        //Sets a constant downward force on the player as long as they are grounded
         if (characterController.isGrounded)
         {
             verticalSpeed = -2f;
         }
+        //If they aren't grounded, the vertical speed is slowly decreases by gravity in order to make them fall again
         else
         {
             verticalSpeed -= gravity * Time.deltaTime;
         }
 
-        //Jumping
+        //Jumping, works by increasing the vertical speed of the player
         if (Input.GetKeyDown(KeyCode.Space) && characterController.isGrounded)
         {
             verticalSpeed = jumpSpeed;
         }
         //Adds gravity
         Vector3 GravityMove = new Vector3(0, verticalSpeed, 0);
-
+        //Moves
         Vector3 Move = transform.forward * verticalMove + transform.right * horizontalMove;
         characterController.Move(speed * Time.deltaTime * Move + GravityMove * Time.deltaTime);
     }
@@ -88,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
     public void Sprint()
     {
-        //Sprint
+        //Sprint, if leftshift is pressed and stamina value is above 0, the speed is increases to 14f
         if (Input.GetKey(KeyCode.LeftShift) && stamina > 0)
         {
             speed = 14f;
@@ -96,6 +97,7 @@ public class PlayerController : MonoBehaviour
             isSprinting = true;
             staminaImage.fillAmount -= 0.2f * Time.deltaTime;
         }
+        //If the player released the shift key, or the stamina value is decreased below zero, the speed is set to its original value
         else if (stamina < 0 || Input.GetKeyUp(KeyCode.LeftShift))
         {
             if (isSprinting == true)

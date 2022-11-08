@@ -15,15 +15,13 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
+        //Updates the time ui text element with the amount of time passed - 5 for each clock the player has picked up
         if(Win.playerHasWon == false)
         {
             time = (int)Time.time - minutesPassedinSeconds - timePickups;
 
             timer.text = "Time:" + time;
         }
-
-
-
 
     }
 
