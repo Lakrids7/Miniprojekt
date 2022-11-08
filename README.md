@@ -1,4 +1,4 @@
-# MiniprojektOverview of the Game:
+Overview of the Game:
 The project is a 3D first-person platformer with a linear level based in an island setting, in which the player must progress through. In order to do this, the player is to jump from platform to platform and dodge various obstacles. The properties of the platforms vary depending on the color of the platform, with each property being triggered as the player touches them. The properties are the following:
 -	Tan platform: The “regular” platform which does nothing upon contact.
 -	Red platform: Sinks into the water, killing the player if they fail to get off the platform
@@ -33,3 +33,26 @@ o	All materials have either been made in Unity or Blender
 o	Game consists of one scene
 -	Testing:
 o	Games was tested on Windows only
+Time Management:
+Task	Time it Took (in hours)
+Setting up Unity, making a project in GitHub	0.5
+Research and conceptualization of game idea	0.5
+Searching for assets: Skybox, particle effect	0.5
+Building 3D models from scratch -barrel, palm tree, soda, watch, volcano	10
+Making camera movement controls and initial testing	1
+Player movement (Taken from previous project)	0.5
+Implementing behavior for the different platforms	3
+Implementing obstacles behavior	1
+Implementing pickups (Stamina soda + watch pickup)	1
+Implementing timer	0.5
+Implementing respawn and checkpoints	1
+Implementing win screen	0.5
+Adding sounds and music	1
+Level design and testing	12
+All	33
+
+Used Resources:
+-	Movement script taken from previous project
+-	Tutorial for barrel modelling in Blender: https://www.youtube.com/watch?v=_Iu88tZ9utE&t=276s
+-	Tutorial for palm tree modelling in Blender: https://www.youtube.com/watch?v=Z1PxTboz-nw
+
