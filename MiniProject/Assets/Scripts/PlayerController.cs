@@ -30,6 +30,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         stamina = 0f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
     private void Update()
     {
